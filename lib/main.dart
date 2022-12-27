@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/services/api_service.dart';
+
+import 'model/article_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,13 +33,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  ApiService client = ApiService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("News App", style: TextStyle(color: Colors.black)),
-        backgroundColor: Colors.white,
-      ),
-    );
+        appBar: AppBar(
+          title: Text("News App", style: TextStyle(color: Colors.black)),
+          backgroundColor: Colors.white,
+        ),
+        //Call API services with futurebuilder widget
+        body: FutureBuilder(
+          future: client.getArticle(),
+          builder:
+              (BuildContext context, AsyncSnapshot<List<Article>> snapshot) {
+            //check response
+            if (snapshot.hasData) {
+              //create a list of articles
+              List<Article>? articles = snapshot.data;
+              return const Center(
+                child: Text("Success"),
+              );
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ));
   }
 }
