@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   itemCount: articles?.length,
                   itemBuilder: (BuildContext context, int index) =>
                       // ListTile(title: Text(articles![index].title)));
-                      customListTile(articles![index]));
+                      customListTile(articles![index], context));
             }
             return const Center(
               child: CircularProgressIndicator(),
