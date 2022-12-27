@@ -8,7 +8,7 @@ Widget customListTile(Article article) {
     padding: EdgeInsets.all(8.0),
     decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18.0),
+        borderRadius: BorderRadius.circular(12.0),
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -20,20 +20,27 @@ Widget customListTile(Article article) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
+          height: 200,
+          width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(article.urlToImage),
-            ),
-            borderRadius: BorderRadius.circular(8.0),
+                image: NetworkImage(article.urlToImage!), fit: BoxFit.cover),
+            borderRadius: BorderRadius.circular(12.0),
           ),
         ),
         SizedBox(height: 8.0),
         Container(
+          padding: EdgeInsets.all(6.0),
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.circular(30.0),
           ),
-          child: Text(article.source.name),
+          child: Text(
+            article.source.name,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
         ),
         SizedBox(
           height: 8.0,

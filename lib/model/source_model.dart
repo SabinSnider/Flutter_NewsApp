@@ -1,8 +1,8 @@
 class Source {
   String? id;
-  String? name;
+  String name;
 
-  Source({this.id, this.name});
+  Source({required this.id, required this.name});
 
   //Factory function to map the json
   factory Source.fromJson(Map<String, dynamic> json) {
