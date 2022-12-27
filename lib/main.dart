@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/services/api_service.dart';
 
+import 'components/customListTile.dart';
 import 'model/article_model.dart';
 
 void main() {
@@ -51,9 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
             if (snapshot.hasData) {
               //create a list of articles
               List<Article>? articles = snapshot.data;
-              return const Center(
-                child: Text("Success"),
-              );
+              // print(articles);
+              return ListView.builder(
+                  itemCount: articles?.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      // ListTile(title: Text(articles![index].title)));
+                      customListTile(articles![index]));
             }
             return const Center(
               child: CircularProgressIndicator(),

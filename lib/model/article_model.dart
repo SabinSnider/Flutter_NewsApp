@@ -1,24 +1,24 @@
 import 'package:news_app/model/source_model.dart';
 
 class Article {
-  Source? source;
+  Source source;
   String? author;
-  String? title;
-  String? description;
-  String? url;
-  String? urlToImage;
-  String? publishedAt;
-  String? content;
+  String title;
+  String description;
+  String url;
+  String urlToImage;
+  String publishedAt;
+  String content;
 
   Article(
-      {this.source,
-      this.author,
-      this.title,
-      this.description,
-      this.url,
-      this.urlToImage,
-      this.publishedAt,
-      this.content});
+      {required this.source,
+      required this.author,
+      required this.title,
+      required this.description,
+      required this.url,
+      required this.urlToImage,
+      required this.publishedAt,
+      required this.content});
 
   //function to map the json into a list
   factory Article.fromJson(Map<String, dynamic> json) {
