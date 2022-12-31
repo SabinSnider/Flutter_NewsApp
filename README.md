@@ -3,7 +3,6 @@
 A news api call Flutter project.
 
 #Screenshot
-#<Img src ="screenshots/Screenshot1.png" width="300px">
  <Img src ="screenshots/Screenshot2.png" width="300px">
   <Img src ="screenshots/Screenshot3.png" width="300px">
 
